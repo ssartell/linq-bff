@@ -1,4 +1,5 @@
 # LINQ BFF
+This presentation is also available as [slides](https://codepen.io/ssartell/full/JqVGPx) on codepen.
 
 ## `IEnumerable<T>`
 Exposes an enumerator via `.GetEnumerator()`, which supports a simple iteration over a collection of a specified type.
