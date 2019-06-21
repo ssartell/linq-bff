@@ -1,4 +1,6 @@
-# LINQ BFF
+# LINQ
+
+---
 
 ## `IEnumerable<T>`
 Exposes an enumerator via `.GetEnumerator()`, which supports a simple iteration over a collection of a specified type.
@@ -7,7 +9,7 @@ Exposes an enumerator via `.GetEnumerator()`, which supports a simple iteration 
 - No defined length, can be finite or infinite 
 - Elements may or may not be in memory
 
-
+---
 
 ## What is LINQ?
 A set of methods and syntax that enable the traversal, filtering, and projection of enumerables.
@@ -27,14 +29,14 @@ var authorsFromThisYear = Books
 - Immutable
 - Lazy
 
-
+---
 
 ### Flavors of LINQ
 - **LINQ to objects**
 - Entity Framework
 - Other LINQ providers
 
-
+---
 
 ## LINQPad
 Playground application for tinkering with C#.
@@ -43,14 +45,14 @@ Playground application for tinkering with C#.
 - Can run any C#, not just LINQ
 - `.Dump()` console writes value (and returns value)
 
-
+---
 
 ## Syntax: Method vs. Query
 > **[Microsoft](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/)**: "As a rule when you write LINQ queries, we recommend that you use query syntax whenever possible and method syntax whenever necessary. There is no semantic or performance difference between the two different forms. Query expressions are often more readable than equivalent expressions written in method syntax."
 
 > **Sean**: Uh, no.
 
-
+---
 
 ### Method Syntax
 
@@ -64,7 +66,7 @@ var normalPeopleNames = people
 - Naturally chainable
 - Easy to extend
 
-
+---
 
 ### Query Syntax
 
@@ -77,7 +79,7 @@ var weirdPeopleNames = from p in people
 - Unique syntax just for LINQ
 - Not extensible
 
-
+---
 
 ## Lambdas
 Anonymous function that are treated as objects.
@@ -100,7 +102,7 @@ Enumerable.Range(0, 10).Where(x => x < 5).Dump(); // => [0,1,2,3,4]
 - Expression lambdas are better when short
 - Statement lambdas are easier to debug
 
-
+---
 
 ## Local Functions
 
@@ -123,11 +125,11 @@ Enumerable.Range(1, 4).Aggregate(Multiply).Dump(); // => 24 = 1 * 2 * 3 * 4
 - Clearer parameter and return types
 - Easier recursion
 
-
+---
 
 ## LINQ Methods
 
-
+---
 
 ## Where
 `IEnumerable<T> Where<T>(Func<T, bool> predicate)`
@@ -140,7 +142,7 @@ IEnumerable<Book> booksToRead = Books
     .Where(book => book.PageCount >= 1000 && book.Genre == "Fantasy");
 ```
 
-
+---
 
 ## Select
 `IEnumerable<TResult> Where<T, TResult>(Func<T, TResult> selector)`
@@ -152,7 +154,7 @@ IEnumerable<int> publishedYears = Books
     .Select(book => book.PublishedYear);
 ```
 
-
+---
 
 ## Finding an Element
 - First / FirstOrDefault
@@ -174,7 +176,7 @@ Book fifthSeasonBook = Books
     .SingleOrDefault(book => book.Title == "The Fifth Season");
 ```
 
-
+---
 
 ## Count
 `int Count<T>([Func<T, bool> predicate])`
@@ -186,7 +188,7 @@ int booksCount = Books.Count();
 int newBooksCount = Books.Count(book => book.PublishedYear >= 2019);
 ```
 
-
+---
 
 ## Reordering
 - OrderBy
@@ -194,7 +196,7 @@ int newBooksCount = Books.Count(book => book.PublishedYear >= 2019);
 - Reverse
 - ThenBy
 
-
+---
 
 ## Truncating
 - Skip
@@ -206,14 +208,14 @@ var pageResults = searchResults
     .Take(pageCount);
 ```
 
-
+---
 
 ## Adding elements
 - Concat
 - Append
 - Prepend
 
-
+---
 
 ## Checking condition of enumerable
 - Any
@@ -223,7 +225,7 @@ var pageResults = searchResults
 var anyBooksToRead = Books.Any(book => book.IsUnread);
 ```
 
-
+---
 
 ## Advanced Methods
 - GroupBy
@@ -231,7 +233,7 @@ var anyBooksToRead = Books.Any(book => book.IsUnread);
 - Zip
 - Aggregate
 
-
+---
 
 ## Static Enumerable Methods
 - Empty
@@ -245,7 +247,7 @@ var ints = Enumerable.Range(0, 5); // => [0, 1, 2, 3, 4]
 var fives = Enumerable.Repeat(5, 3); // => [5, 5, 5]
 ```
 
-
+---
 
 ## GroupBy
 Groups the elements of a sequence according to a specified key selector function.
@@ -262,7 +264,7 @@ var authorWithMostBooks = Books
 
 - `IGrouping` implements `IEnumerable<T>`
 
-
+---
 
 ## SelectMany
 Projects each element of a sequence to an `IEnumerable<T>`, and flattens the resulting sequences into one sequence.
@@ -277,7 +279,7 @@ Enumerable.Range(0, 10)
     .Dump(); // => [3, 7, 13, 17, 23, ...]
 ```
 
-
+---
 
 ## Aggregate
 
@@ -292,7 +294,7 @@ Examples:
 - Min & Max
 - Redux
 
-
+---
 
 ## Deferred Execution
 
@@ -315,14 +317,14 @@ numbers.Take(5).Dump(); // => [1, 2, 3, 4, 5]
 - **Execution halts** at each yield until next value needed
 - All LINQ methods that return `IEnumerable<T>` use yield
 
-
+---
 
 ## Interesting Examples
 - Random
 - Fibonacci
 - Binary Tree Traversal
 
-
+---
 
 ## Caution: Multiple Enumerations
 
@@ -330,7 +332,7 @@ While some enumerators are based on materialized data, others other may have maj
 
 Consider enumerating once and saving the values. i.e. `.ToList()`
 
-
+---
 
 ## Extension Methods
 ```cs
@@ -347,7 +349,7 @@ public static class Extensions
 Enumerable.Range(1, 3).Loop().Take(10).Dump(); // => [1,2,3,1,2,3,1,2,3,1]
 ```
 
-
+---
 
 ## More Extension Methods
 ```cs
@@ -370,7 +372,7 @@ Enumerable.Range(0, 7)
     .Dump(); // [[0, 1, 2], [3, 4, 5], [6]]
 ```
 
-
+---
 
 ## Debugging LINQ
 - If you need to set a breakpoint, use statement lambda!
@@ -392,7 +394,7 @@ Enumerable.Range(0, 10)
     .Dump();
 ```
 
-
+---
 
 ## Readability & Reusability
 ```cs
@@ -410,7 +412,7 @@ Enumerable.Range(0, 10)
 - Use named local functions, lambdas, or static methods improve readability
 - Use inline lambdas for simple logic only
 
-
+---
 
 ## Reusability++
 
@@ -428,7 +430,7 @@ Enumerable.Range(0, 10)
     .Dump(); // => [0, 1, 2, 3, 4]
 ```
 
-
+---
 
 ## LINQ Puzzles
 - http://ssartell.github.io/linq-puzzles/
@@ -440,6 +442,6 @@ Enumerable.Range(0, 10)
 - Generate Permutations
 - Subset Sum [*NP-Complete*]
 
+---
 
-
-## Thank you!
+# Thank you!
