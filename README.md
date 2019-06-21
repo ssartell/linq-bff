@@ -37,7 +37,7 @@ var authorsFromThisYear = Books
 
 
 ## LINQPad
-Playground application for tinkering with C#.
+Playground application for tinkering with C#. https://www.linqpad.net/
 ![image](https://www.linqpad.net/images/maincodescratchpad.png)
 - Instead of console apps to test snippets of code
 - Can run any C#, not just LINQ
