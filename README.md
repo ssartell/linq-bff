@@ -1,5 +1,5 @@
 # LINQ BFF
-You can watch a [recording of the presentation](https://web.microsoftstream.com/video/f2f020f4-3d05-41a0-9199-c8033372d01b), browse the [slides](https://codepen.io/ssartell/full/JqVGPx) on codepen, or just go through the README below. All the samples covered in the video are included in this repo under the "samples" folder. Thanks!
+You can watch a [recording of the presentation](https://web.microsoftstream.com/video/f2f020f4-3d05-41a0-9199-c8033372d01b), browse the [slides on codepen](https://codepen.io/ssartell/full/JqVGPx), or just go through the README below. All the samples covered in the video are included in this repo under the "samples" folder. Thanks!
 
 ## `IEnumerable<T>`
 Exposes an enumerator via `.GetEnumerator()`, which supports a simple iteration over a collection of a specified type.
