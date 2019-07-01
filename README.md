@@ -289,9 +289,9 @@ Enumerable.Range(0, 10)
 Applies an accumulator function over a sequence. Returns final accumulator. *Essentially a for loop with some state.*
 
 Examples:
-- Max
-- Min & Max
-- Redux
+- [Max](https://github.com/ssartell/linq-bff/blob/master/samples/Max.linq)
+- [Min & Max](https://github.com/ssartell/linq-bff/blob/master/samples/MinMax.linq)
+- [Redux](https://github.com/ssartell/linq-bff/blob/master/samples/Redux.linq)
 
 
 
@@ -319,9 +319,9 @@ numbers.Take(5).Dump(); // => [1, 2, 3, 4, 5]
 
 
 ## Interesting Examples
-- Random
-- Fibonacci
-- Binary Tree Traversal
+- [Random](https://github.com/ssartell/linq-bff/blob/master/samples/Random.linq)
+- [Fibonacci](https://github.com/ssartell/linq-bff/blob/master/samples/Fibonacci.linq)
+- [Binary Tree Traversal](https://github.com/ssartell/linq-bff/blob/master/samples/BinaryTree.linq)
 
 
 
